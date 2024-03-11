@@ -96,7 +96,8 @@ pipe = StableDiffusionInpaintPipeline.from_pretrained(
     "stabilityai/stable-diffusion-2-inpainting",
     requires_safety_checker=False,
     safety_checker=None,
-    revision="fp16",
+    # revision="fp16",
+    variant='fp16',
     torch_dtype=torch.float32,
     # torch_dtype=torch.float16,
 )
