@@ -16,11 +16,14 @@ class KandinskyModel():
 
     def diffusion_inpaint(self, image, mask, positive_prompt, negative_prompt, w_orig, h_orig):
         inpaint_image = self.pipe(
-            num_inference_steps=20,
+            num_inference_steps=30,
             prompt=positive_prompt, 
             negative_prompt=negative_prompt,
             image=image, 
-            mask_image=mask).images[0]
+            mask_image=mask, 
+            guidance_scale=9.0,
+            # strength=1.0,
+            ).images[0]
         
         inpaint_image = inpaint_image.resize((w_orig, h_orig))
         return np.array(inpaint_image)

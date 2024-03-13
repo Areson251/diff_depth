@@ -17,12 +17,13 @@ class StableDiffusionModel():
 
     def diffusion_inpaint(self, image, mask, positive_prompt, negative_prompt, w_orig, h_orig):
         inpaint_image = self.pipe(
-            num_inference_steps=20,
+            num_inference_steps=50,
             prompt=positive_prompt,
             negative_prompt=negative_prompt,
             image=image,
             mask_image=mask,
-            guidance_scale=7.5,
+            guidance_scale=12.5,
+            strength=1.0
         ).images[0]
 
         # inpaint_image = inpaint_image
