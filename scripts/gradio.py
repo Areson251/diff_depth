@@ -1,4 +1,6 @@
+import os
 import numpy as np
+import torch
 from PIL import Image
 import gradio as gr
 from .stable_diffusion import StableDiffusionModel
@@ -6,6 +8,10 @@ from .kandinsky import KandinskyModel
 
 class GradioWindow():
     def __init__(self) -> None:
+        self.path_to_orig_imgs = "images/orig_imgs"
+        self.path_to_prompts = "images/prompts.txt"
+        self.path_to_negative_prompts = "images/negative_prompts.txt"
+
         self.stable_diffusion = StableDiffusionModel()
         self.kandinsky = KandinskyModel()
 
@@ -29,6 +35,8 @@ class GradioWindow():
             with gr.Row():
                 self.positive_prompt = gr.Textbox(label="Positive prompt")
                 self.negative_prompt = gr.Textbox(label="Negative prompt")
+                # self.iter_number = gr.Number(label="Steps")
+                # self.guidance_scale = gr.Number(label="Guidance Scale")
                 self.enter_prompt = gr.Button("Enter prompt")
 
             with gr.Row():
@@ -42,6 +50,7 @@ class GradioWindow():
                 inputs=self.input_img
             )
 
+            # TODO: rewrite to cycle for each model
             self.enter_prompt.click(
                 self.inpaint_image,
                 inputs=[self.positive_prompt, self.negative_prompt],
@@ -69,6 +78,7 @@ class GradioWindow():
     def inpaint_image(self, positive_prompt, negative_prompt):
         image, mask, w_orig, h_orig = self.prepare_input(self.original_img, self.masks)
 
+        # TODO: write common AutoPipelineForInpainting for all models
         self.kandinsky_image = self.kandinsky.diffusion_inpaint(
             image, mask, positive_prompt, negative_prompt, w_orig, h_orig
         )
