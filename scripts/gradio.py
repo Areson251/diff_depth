@@ -5,20 +5,32 @@ from PIL import Image
 import gradio as gr
 from .stable_diffusion import StableDiffusionModel
 from .kandinsky import KandinskyModel
+import logging
 
 class GradioWindow():
     def __init__(self) -> None:
         self.path_to_orig_imgs = "images/orig_imgs"
+        self.path_to_output_imgs = "images/output_imgs"
         self.path_to_prompts = "images/prompts.txt"
         self.path_to_negative_prompts = "images/negative_prompts.txt"
 
-        self.stable_diffusion = StableDiffusionModel()
-        self.kandinsky = KandinskyModel()
-
         self.original_img = None
         self.masks = None
+        self.prompts = None
 
+        self.folders = [self.path_to_orig_imgs, self.path_to_output_imgs]
+
+        # self.stable_diffusion = StableDiffusionModel()
+        self.kandinsky = KandinskyModel()
+
+        self.check_folders()
+        self.read_prompts()
         self.main()
+
+    def check_folders(self):
+        for path in self.folders:
+            if not os.path.exists(path):
+                os.makedirs(path)
 
     def main(self):
         with gr.Blocks() as self.demo:
@@ -33,10 +45,10 @@ class GradioWindow():
                 self.im_out_3 = gr.Image(type="pil", label="composite")
 
             with gr.Row():
-                self.positive_prompt = gr.Textbox(label="Positive prompt")
-                self.negative_prompt = gr.Textbox(label="Negative prompt")
-                # self.iter_number = gr.Number(label="Steps")
-                # self.guidance_scale = gr.Number(label="Guidance Scale")
+                # self.positive_prompt = gr.Textbox(label="Positive prompt")
+                # self.negative_prompt = gr.Textbox(label="Negative prompt")
+                self.iter_number = gr.Number(value=20, label="Steps")
+                self.guidance_scale = gr.Number(value=0.7, label="Guidance Scale")
                 self.enter_prompt = gr.Button("Enter prompt")
 
             with gr.Row():
@@ -53,7 +65,8 @@ class GradioWindow():
             # TODO: rewrite to cycle for each model
             self.enter_prompt.click(
                 self.inpaint_image,
-                inputs=[self.positive_prompt, self.negative_prompt],
+                # inputs=[self.positive_prompt, self.negative_prompt],
+                inputs=[self.iter_number, self.guidance_scale],
                 outputs=[self.kandinsky_image, self.stable_diffusion_image],
             )
 
@@ -75,18 +88,40 @@ class GradioWindow():
         print(np.array(image).shape, np.array(mask).shape)
         return image, mask, w_orig, h_orig
 
-    def inpaint_image(self, positive_prompt, negative_prompt):
+    def inpaint_image(self, iter_number, guidance_scale):
         image, mask, w_orig, h_orig = self.prepare_input(self.original_img, self.masks)
 
-        # TODO: write common AutoPipelineForInpainting for all models
-        self.kandinsky_image = self.kandinsky.diffusion_inpaint(
-            image, mask, positive_prompt, negative_prompt, w_orig, h_orig
-        )
+        for prompt in self.prompts:
+            # try:
+            #     # TODO: write common AutoPipelineForInpainting for all models
+            #     # TODO: use some bib for logs
+            #     self.stable_diffusion_image = self.stable_diffusion.diffusion_inpaint(
+            #         image, mask, prompt, None, w_orig, h_orig, 
+            #         iter_number, guidance_scale,
+            #     )
+            #     self.save_img(self.stable_diffusion_image, "SDXL_"+prompt)
+            # except Exception as error:
+            #     print("ERROR WITH GENERATING IMAGE VIA SDXL: ", error)
 
-        self.stable_diffusion_image = self.stable_diffusion.diffusion_inpaint(
-            image, mask, positive_prompt, negative_prompt, w_orig, h_orig
-        )
+            try:
+                self.kandinsky_image = self.kandinsky.diffusion_inpaint(
+                    image, mask, prompt, None, w_orig, h_orig, 
+                    iter_number, guidance_scale,
+                )
+                self.save_img(self.kandinsky_image, "KAND_"+prompt)
+            except Exception as error:
+                print("ERROR WITH GENERATING IMAGE VIA KANDINSKY: ", error)
+
         return self.kandinsky_image, self.stable_diffusion_image
+    
+    def read_prompts(self):
+        with open(self.path_to_prompts, 'r') as file:
+            self.prompts = [line.rstrip() for line in file]
+
+    def save_img(self, img, prompt):
+        im = Image.fromarray(img)
+        im.save(os.path.join(self.path_to_output_imgs, prompt) + ".png")
+        print("SAVED: ", prompt)
     
 
 window = GradioWindow()

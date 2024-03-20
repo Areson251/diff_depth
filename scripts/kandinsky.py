@@ -8,13 +8,6 @@ class KandinskyModel():
         self.device = torch.device("mps")
         # print("DEVICE FOR KANDINSKY: ", self.device)
 
-
-        # self.pipe_prior = KandinskyPriorPipeline.from_pretrained(
-
-        #     "kandinsky-community/kandinsky-2-1-prior", 
-        #     # torch_dtype=torch.float16,
-        # )
-
         self.pipe = AutoPipelineForInpainting.from_pretrained(
         # self.pipe = KandinskyInpaintPipeline.from_pretrained(
         "kandinsky-community/kandinsky-2-2-decoder-inpaint", 
@@ -27,18 +20,18 @@ class KandinskyModel():
         # remove following line if xFormers is not installed or you have PyTorch 2.0 or higher installed
         # self.pipe.enable_xformers_memory_efficient_attention()
 
-    def diffusion_inpaint(self, image, mask, positive_prompt, negative_prompt, w_orig, h_orig):
-        # image_emb, zero_image_emb = self.pipe_prior(positive_prompt, return_dict=False)
+    def diffusion_inpaint(self, image, mask, 
+                          positive_prompt, negative_prompt, 
+                          w_orig, h_orig, 
+                          iter_number, guidance_scale):
+
         inpaint_images = self.pipe(
-            num_inference_steps=20,
+            num_inference_steps=iter_number,
             prompt=positive_prompt, 
-            negative_prompt=negative_prompt,
-            # image_embeds=image_emb,
-            # negative_image_embeds=zero_image_emb,
+            # negative_prompt=negative_prompt,
             image=image, 
             mask_image=mask, 
-            guidance_scale=7.0,
-            # strength=1.0,
+            guidance_scale=guidance_scale,
             ).images
         
         print("GENERATED IMAGE COUNT: ", len(inpaint_images))

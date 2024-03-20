@@ -28,14 +28,18 @@ class StableDiffusionModel():
 
         self.pipe.scheduler = DDIMScheduler.from_config(self.pipe.scheduler.config)
 
-    def diffusion_inpaint(self, image, mask, positive_prompt, negative_prompt, w_orig, h_orig):
+    def diffusion_inpaint(self, image, mask, 
+                          positive_prompt, negative_prompt, 
+                          w_orig, h_orig, 
+                          iter_number, guidance_scale):
+        
         inpaint_images = self.pipe(
-            num_inference_steps=20,
+            num_inference_steps=iter_number,
             prompt=positive_prompt,
-            negative_prompt=negative_prompt,
+            # negative_prompt=negative_prompt,
             image=image,
             mask_image=mask,
-            guidance_scale=12.5,
+            guidance_scale=guidance_scale,
             strength=1.0
         ).images
 
