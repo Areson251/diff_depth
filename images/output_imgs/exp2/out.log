@@ -1,0 +1,139 @@
+INFO:scripts.gradio:Started
+INFO:scripts.gradio:Use prompts from images/prompts.txt
+INFO:scripts.gradio:Models loaded
+INFO:httpx:HTTP Request: GET http://127.0.0.1:7860/startup-events "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: HEAD http://127.0.0.1:7860/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET https://checkip.amazonaws.com/ "HTTP/1.1 200 "
+INFO:httpx:HTTP Request: GET https://api.gradio.app/pkg-version "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.gradio.app/gradio-launched-telemetry/ "HTTP/1.1 200 OK"
+INFO:httpx:HTTP Request: POST https://api.gradio.app/gradio-initiated-analytics/ "HTTP/1.1 200 OK"
+INFO:scripts.gradio:New mask has been drawn
+INFO:scripts.gradio:Image shape: (963, 1280, 4)
+INFO:scripts.gradio:Mask shape: (963, 1280)
+INFO:scripts.gradio:New image shape: (512, 512, 3)
+INFO:scripts.gradio:New mask shape: (512, 512)
+INFO:scripts.gradio:Generate SD with prompt: road with huge stones
+INFO:scripts.gradio:SDXL generated time: 93.87139678001404
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_road with huge stones.png
+INFO:scripts.gradio:Generate KAND with prompt: road with huge stones
+INFO:scripts.gradio:SDXL generated time: 253.15921902656555
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_road with huge stones.png
+INFO:scripts.gradio:Generate SD with prompt: road with huge potholes
+INFO:scripts.gradio:SDXL generated time: 112.52755689620972
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_road with huge potholes.png
+INFO:scripts.gradio:Generate KAND with prompt: road with huge potholes
+INFO:scripts.gradio:SDXL generated time: 245.64910674095154
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_road with huge potholes.png
+INFO:scripts.gradio:Generate SD with prompt: off-road
+INFO:scripts.gradio:SDXL generated time: 110.90155696868896
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_off-road.png
+INFO:scripts.gradio:Generate KAND with prompt: off-road
+INFO:scripts.gradio:SDXL generated time: 251.4418168067932
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_off-road.png
+INFO:scripts.gradio:Generate SD with prompt: snowdrifts
+INFO:scripts.gradio:SDXL generated time: 112.22222900390625
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_snowdrifts.png
+INFO:scripts.gradio:Generate KAND with prompt: snowdrifts
+INFO:scripts.gradio:SDXL generated time: 242.1502959728241
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_snowdrifts.png
+INFO:scripts.gradio:Generate SD with prompt: pothole
+INFO:scripts.gradio:SDXL generated time: 117.22955703735352
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_pothole.png
+INFO:scripts.gradio:Generate KAND with prompt: pothole
+INFO:scripts.gradio:SDXL generated time: 150.49296522140503
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_pothole.png
+INFO:scripts.gradio:Generate SD with prompt: potholes
+INFO:scripts.gradio:SDXL generated time: 115.70268177986145
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_potholes.png
+INFO:scripts.gradio:Generate KAND with prompt: potholes
+INFO:scripts.gradio:SDXL generated time: 163.73132920265198
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_potholes.png
+INFO:scripts.gradio:Generate SD with prompt: stones
+INFO:scripts.gradio:SDXL generated time: 114.59278798103333
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_stones.png
+INFO:scripts.gradio:Generate KAND with prompt: stones
+INFO:scripts.gradio:SDXL generated time: 171.42986178398132
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_stones.png
+INFO:scripts.gradio:Generate SD with prompt: stone
+INFO:scripts.gradio:SDXL generated time: 105.74259614944458
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_stone.png
+INFO:scripts.gradio:Generate KAND with prompt: stone
+INFO:scripts.gradio:SDXL generated time: 169.057119846344
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_stone.png
+INFO:scripts.gradio:Generate SD with prompt: pit
+INFO:scripts.gradio:SDXL generated time: 108.12626194953918
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_pit.png
+INFO:scripts.gradio:Generate KAND with prompt: pit
+INFO:scripts.gradio:SDXL generated time: 198.75351810455322
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_pit.png
+INFO:scripts.gradio:Generate SD with prompt: pits
+INFO:scripts.gradio:SDXL generated time: 112.62546801567078
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_pits.png
+INFO:scripts.gradio:Generate KAND with prompt: pits
+INFO:scripts.gradio:SDXL generated time: 154.64636611938477
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_pits.png
+INFO:scripts.gradio:Generate SD with prompt: dirt
+INFO:scripts.gradio:SDXL generated time: 110.83393716812134
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_dirt.png
+INFO:scripts.gradio:Generate KAND with prompt: dirt
+INFO:scripts.gradio:SDXL generated time: 169.80656480789185
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_dirt.png
+INFO:scripts.gradio:Generate SD with prompt: dirty road
+INFO:scripts.gradio:SDXL generated time: 110.98738884925842
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_dirty road.png
+INFO:scripts.gradio:Generate KAND with prompt: dirty road
+INFO:scripts.gradio:SDXL generated time: 147.82686281204224
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_dirty road.png
+INFO:scripts.gradio:Generate SD with prompt: log
+INFO:scripts.gradio:SDXL generated time: 109.78187704086304
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_log.png
+INFO:scripts.gradio:Generate KAND with prompt: log
+INFO:scripts.gradio:SDXL generated time: 129.52127885818481
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_log.png
+INFO:scripts.gradio:Generate SD with prompt: logs
+INFO:scripts.gradio:SDXL generated time: 112.07430481910706
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_logs.png
+INFO:scripts.gradio:Generate KAND with prompt: logs
+INFO:scripts.gradio:SDXL generated time: 146.288024187088
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_logs.png
+INFO:scripts.gradio:Generate SD with prompt: beam
+INFO:scripts.gradio:SDXL generated time: 107.61420679092407
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_beam.png
+INFO:scripts.gradio:Generate KAND with prompt: beam
+INFO:scripts.gradio:SDXL generated time: 144.80246591567993
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_beam.png
+INFO:scripts.gradio:Generate SD with prompt: timber
+INFO:scripts.gradio:SDXL generated time: 104.42462420463562
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_timber.png
+INFO:scripts.gradio:Generate KAND with prompt: timber
+INFO:scripts.gradio:SDXL generated time: 161.24055981636047
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_timber.png
+INFO:scripts.gradio:Generate SD with prompt: road with huge snowdrifts
+INFO:scripts.gradio:SDXL generated time: 104.42760586738586
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_road with huge snowdrifts.png
+INFO:scripts.gradio:Generate KAND with prompt: road with huge snowdrifts
+INFO:scripts.gradio:SDXL generated time: 147.05079913139343
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_road with huge snowdrifts.png
+INFO:scripts.gradio:Generate SD with prompt: cat
+INFO:scripts.gradio:SDXL generated time: 111.08109474182129
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_cat.png
+INFO:scripts.gradio:Generate KAND with prompt: cat
+INFO:scripts.gradio:SDXL generated time: 151.2787160873413
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_cat.png
+INFO:scripts.gradio:Generate SD with prompt: humans
+INFO:scripts.gradio:SDXL generated time: 109.1294538974762
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_humans.png
+INFO:scripts.gradio:Generate KAND with prompt: humans
+INFO:scripts.gradio:SDXL generated time: 150.61486315727234
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_humans.png
+INFO:scripts.gradio:Generate SD with prompt: human
+INFO:scripts.gradio:SDXL generated time: 105.24666976928711
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/SDXL_human.png
+INFO:scripts.gradio:Generate KAND with prompt: human
+INFO:scripts.gradio:SDXL generated time: 166.3892478942871
+INFO:scripts.gradio:Save image to images/output_imgs/exp2/KAND_human.png
+INFO:scripts.gradio:DONE GENERATING IMAGES
+INFO:scripts.gradio:AVERAGE TIME FOR MODELS:
+INFO:scripts.gradio:Stable Diffusion: 109.45716278553009
+INFO:scripts.gradio:Kandinsky: 175.76654907464982
