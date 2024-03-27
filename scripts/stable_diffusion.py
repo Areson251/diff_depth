@@ -10,7 +10,8 @@ class StableDiffusionModel():
         print("DEVICE FOR SD: ", self.device)
 
         # self.pipe = StableDiffusionInpaintPipeline.from_pretrained(
-        #     "stabilityai/stable-diffusion-2-inpainting",
+        #     "runwayml/stable-diffusion-v1-5",
+        #     # "stabilityai/stable-diffusion-2-inpainting",
         #     requires_safety_checker=False,
         #     safety_checker=None,
         #     variant='fp16',

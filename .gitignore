@@ -1,3 +1,6 @@
 diff_depth/
 __pycache__
 .DS_Store
+images/output_imgs/exp3
+images/output_imgs/exp4
+images/left_label

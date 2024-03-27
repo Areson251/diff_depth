@@ -11,7 +11,7 @@ import time
 class GradioWindow():
     def __init__(self) -> None:
         self.path_to_orig_imgs = "images/orig_imgs"
-        self.path_to_output_imgs = "images/output_imgs/exp2"
+        self.path_to_output_imgs = "images/output_imgs/exp4"
         self.path_to_prompts = "images/prompts.txt"
         self.path_to_negative_prompts = "images/negative_prompts.txt"
         self.path_to_logs = "out.log"
@@ -126,7 +126,6 @@ class GradioWindow():
             try:
                 self.logger.info("Generate SD with prompt: "+prompt)
                 # TODO: write common AutoPipelineForInpainting for all models
-                # TODO: use some bib for logs
                 start_time = time.time()
                 self.stable_diffusion_image = self.stable_diffusion.diffusion_inpaint(
                     image, mask, prompt, None, w_orig, h_orig, 
@@ -135,7 +134,7 @@ class GradioWindow():
                 curr_time = time.time()
                 self.sd_avg_time += curr_time-start_time
                 self.logger.info("SDXL generated time: "+str(curr_time-start_time))
-                self.save_img(self.stable_diffusion_image, "SDXL_"+prompt)
+                self.save_img(self.stable_diffusion_image, "SD1-5_"+prompt)
             except Exception as error:
                 self.logger.info("ERROR WITH GENERATING IMAGE VIA SDXL: "+error)
                 print("ERROR WITH GENERATING IMAGE VIA SDXL: ", error)
